@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17.0.2"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.pgii.view.viewcontroller.PantallaFinalViewController"
+           style="-fx-background-color:white;">
+
+    <ImageView fx:id="imgFinal"
+               fitWidth="1100" fitHeight="720"
+               preserveRatio="true"
+               StackPane.alignment="CENTER"/>
+
+    <Button text="X  Cerrar aplicacion"
+            onAction="#onCerrar"
+            style="-fx-background-color:#d32f2f; -fx-text-fill:white;
+                   -fx-font-size:13; -fx-font-weight:bold;
+                   -fx-background-radius:4; -fx-cursor:hand; -fx-padding:8 18;"
+            StackPane.alignment="BOTTOM_RIGHT">
+        <StackPane.margin>
+            <Insets bottom="20" right="20"/>
+        </StackPane.margin>
+    </Button>
+
+</StackPane>

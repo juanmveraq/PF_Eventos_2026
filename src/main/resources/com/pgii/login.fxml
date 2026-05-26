@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pgii.view.viewcontroller.LoginViewController">
+    <center>
+        <VBox alignment="CENTER" maxWidth="440" spacing="20">
+            <padding><Insets left="20" right="20" /></padding>
+
+            <Label style="-fx-font-size:28;" styleClass="label-title" text="TuBoletaRobinson" />
+            <Label styleClass="label-muted" text="La mejor app de compra de boletas traida directamente por Robinson" />
+
+            <StackPane>
+
+                <!-- PANEL LOGIN -->
+                <VBox fx:id="panelLogin" spacing="14" style="-fx-padding:30;" styleClass="card" visible="true">
+                    <Label style="-fx-font-size:16; -fx-font-weight:bold;" text="Iniciar Sesion" />
+                    <Separator />
+                    <Label styleClass="label-muted" text="Correo electronico" />
+                    <TextField fx:id="txtCorreo" promptText="usuario@ejemplo.com" />
+                    <Label styleClass="label-muted" text="Contrasena" />
+                    <PasswordField fx:id="txtPassword" promptText="Tu contrasena" />
+                    <Label fx:id="lblError" style="-fx-text-fill:#d32f2f;" text="" />
+                    <Button maxWidth="Infinity" onAction="#onIngresar" style="-fx-font-size:14; -fx-padding:12;" styleClass="btn-primary" text="Iniciar Sesion" />
+                    <Separator />
+                    <Label style="-fx-font-size:12;" styleClass="label-muted" text="No tienes cuenta? a continuacion cree una como cliente" />
+                    <Button maxWidth="Infinity" onAction="#onMostrarRegistro" styleClass="btn-secondary" text="Crear cuenta de cliente" />
+                </VBox>
+
+                <!-- PANEL REGISTRO -->
+                <VBox fx:id="panelRegistro" spacing="12" style="-fx-padding:30;" styleClass="card" visible="false">
+                    <Label style="-fx-font-size:16; -fx-font-weight:bold;" text="Crear cuenta de cliente" />
+                    <Separator />
+                    <Label styleClass="label-muted" text="Nombre completo" />
+                    <TextField fx:id="txtRegNombre" promptText="Tu nombre" />
+                    <Label styleClass="label-muted" text="Correo electronico" />
+                    <TextField fx:id="txtRegCorreo" promptText="correo@ejemplo.com" />
+                    <Label styleClass="label-muted" text="Contrasena" />
+                    <PasswordField fx:id="txtRegContrasena" promptText="Minimo 4 caracteres" />
+                    <Label styleClass="label-muted" text="Confirmar contrasena" />
+                    <PasswordField fx:id="txtRegContrasena2" promptText="Repite la contrasena" />
+                    <Label styleClass="label-muted" text="Telefono (opcional)" />
+                    <TextField fx:id="txtRegTelefono" promptText="Opcional" />
+                    <Label styleClass="label-muted" text="Numero de tarjeta (opcional, 16 digitos)" />
+                    <TextField fx:id="txtRegTarjeta" promptText="0000000000000000" />
+                    <Label fx:id="lblRegMsg" style="-fx-text-fill:#d32f2f;" text="" />
+                    <Button maxWidth="Infinity" onAction="#onRegistrar" style="-fx-font-size:14; -fx-padding:12;" styleClass="btn-success" text="Registrarme como cliente" />
+                    <Separator />
+                    <Button maxWidth="Infinity" onAction="#onVolverLogin" styleClass="btn-secondary" text="Volver al inicio de sesion" />
+                </VBox>
+
+            </StackPane>
+
+        </VBox>
+    </center>
+    <bottom>
+        <Label style="-fx-font-size:10; -fx-padding:8;" styleClass="label-muted"
+               text="Demo: admin@gmail.com / admin123  |  simon@gmail.com / simon123"
+               BorderPane.alignment="CENTER"/>
+    </bottom>
+</BorderPane>

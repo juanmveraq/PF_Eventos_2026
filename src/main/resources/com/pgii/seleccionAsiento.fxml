@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pgii.view.viewcontroller.SeleccionAsientoViewController"
+            stylesheets="@styles.css">
+
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15">
+            <Button text="Volver" styleClass="btn-secondary" onAction="#onVolver"/>
+            <VBox>
+                <Label fx:id="lblNombreEvento"  styleClass="label-title" style="-fx-font-size:16;"/>
+                <Label fx:id="lblNombreRecinto" styleClass="label-muted"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox spacing="18" alignment="CENTER">
+                <Label text="VIP"          style="-fx-text-fill:#f9a825; -fx-font-weight:bold;"/>
+                <Label text="Preferencial" style="-fx-text-fill:#6a1b9a; -fx-font-weight:bold;"/>
+                <Label text="General"      style="-fx-text-fill:#1565c0; -fx-font-weight:bold;"/>
+                <Label text="Ocupado"      styleClass="label-muted"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" pannable="true">
+            <VBox fx:id="contenedorMapa" alignment="TOP_CENTER" spacing="14"
+                  style="-fx-padding:20;">
+                <HBox alignment="CENTER">
+                    <Label text="  ESCENARIO  "
+                           style="-fx-background-color:#e0e0e0; -fx-text-fill:#555555;
+                                  -fx-font-weight:bold; -fx-background-radius:6;
+                                  -fx-padding:8 50; -fx-font-size:13;"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="20">
+            <VBox>
+                <Label text="Seleccion:" styleClass="label-muted" style="-fx-font-size:11;"/>
+                <Label fx:id="lblAsientoSeleccionado" text="Haga clic en un asiento"
+                       style="-fx-font-size:13; -fx-font-weight:bold;"/>
+            </VBox>
+            <Separator orientation="VERTICAL"/>
+            <VBox>
+                <Label text="Categoria:" styleClass="label-muted" style="-fx-font-size:11;"/>
+                <Label fx:id="lblZonaSeleccionada" text="—" style="-fx-font-size:13;"/>
+            </VBox>
+            <Separator orientation="VERTICAL"/>
+            <VBox>
+                <Label text="Total:" styleClass="label-muted" style="-fx-font-size:11;"/>
+                <Label fx:id="lblPrecioSeleccionado" text="—"
+                       style="-fx-font-size:13; -fx-text-fill:#1565c0; -fx-font-weight:bold;"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnContinuar" text="Continuar con la compra"
+                    styleClass="btn-primary" onAction="#onContinuar"
+                    disable="true" style="-fx-font-size:13; -fx-padding:10 22;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
