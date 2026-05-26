@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pgii.view.viewcontroller.CompraViewController"
+            stylesheets="@styles.css">
+
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15">
+            <Button text="Volver" styleClass="btn-secondary" onAction="#onVolver"/>
+            <Label text="Confirmar Compra" styleClass="label-title" style="-fx-font-size:18;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <HBox spacing="20" style="-fx-padding:20;" alignment="TOP_CENTER">
+
+                <!-- Columna izquierda -->
+                <VBox spacing="14" prefWidth="500">
+
+                    <VBox styleClass="card" spacing="10">
+                        <Label text="Resumen de la Compra" styleClass="label-accent" style="-fx-font-size:14;"/>
+                        <Separator/>
+                        <Label text="Evento:" styleClass="label-muted"/>
+                        <Label fx:id="lblEvento" style="-fx-font-weight:bold; -fx-font-size:13;"/>
+                        <Separator/>
+                        <Label fx:id="lblAsientosCount" styleClass="label-muted" style="-fx-font-size:12;"/>
+                        <ListView fx:id="listAsientos" prefHeight="110"/>
+                    </VBox>
+
+                    <VBox styleClass="card" spacing="10">
+                        <Label text="Servicios Adicionales" styleClass="label-accent" style="-fx-font-size:14;"/>
+                        <Separator/>
+                        <CheckBox fx:id="chkVip" text="Acceso VIP            (+$50.000)" onAction="#onServicioChanged"/>
+                        <CheckBox fx:id="chkSeg" text="Seguro de cancelacion (+$15.000)" onAction="#onServicioChanged"/>
+                        <CheckBox fx:id="chkMer" text="Merchandising         (+$25.000)" onAction="#onServicioChanged"/>
+                        <CheckBox fx:id="chkPar" text="Parqueadero           (+$20.000)" onAction="#onServicioChanged"/>
+                        <CheckBox fx:id="chkAcc" text="Acceso preferencial   (+$30.000)" onAction="#onServicioChanged"/>
+                        <Label text="Precio por asiento." styleClass="label-muted" style="-fx-font-size:10;"/>
+                    </VBox>
+
+                </VBox>
+
+                <!-- Columna derecha -->
+                <VBox spacing="14" prefWidth="360">
+
+                    <VBox styleClass="card" spacing="10">
+                        <Label text="Metodo de Pago" styleClass="label-accent" style="-fx-font-size:14;"/>
+                        <Separator/>
+                        <Label text="Seleccione metodo:" styleClass="label-muted"/>
+                        <ComboBox fx:id="cbMetodoPago" maxWidth="Infinity" onAction="#onMetodoPagoChanged"/>
+                        <Label fx:id="lblSaldoUsuario" text=""
+                               style="-fx-font-weight:bold; -fx-text-fill:#1565c0;"/>
+                        <Separator/>
+                        <Label fx:id="lblDetallePago" text="Detalle del pago:" styleClass="label-muted"/>
+                        <TextField fx:id="txtDetallesPago"
+                                   promptText="Seleccione un metodo primero"
+                                   disable="true"/>
+                        <Label fx:id="lblCambio" text="" style="-fx-font-weight:bold;"/>
+                    </VBox>
+
+                    <VBox styleClass="card" spacing="10" alignment="CENTER">
+                        <Label text="TOTAL A PAGAR" styleClass="label-muted" style="-fx-font-size:11;"/>
+                        <Label fx:id="lblTotal" text="0"
+                               style="-fx-text-fill:#1565c0; -fx-font-size:32; -fx-font-weight:bold;"/>
+                        <Separator/>
+                        <Button text="Confirmar y Pagar" onAction="#onConfirmar"
+                                maxWidth="Infinity" styleClass="btn-primary"
+                                style="-fx-font-size:14; -fx-padding:12;"/>
+                        <Button text="Cancelar" onAction="#onVolver"
+                                maxWidth="Infinity" styleClass="btn-secondary"/>
+                    </VBox>
+
+                    <VBox fx:id="panelResultado" styleClass="card" spacing="8" visible="false">
+                        <Label text="Estado de la Compra" styleClass="label-accent"/>
+                        <Separator/>
+                        <Label fx:id="lblResultado" wrapText="true" style="-fx-font-size:13;"/>
+                    </VBox>
+
+                </VBox>
+
+            </HBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

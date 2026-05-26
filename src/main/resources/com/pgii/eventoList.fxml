@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pgii.view.viewcontroller.EventoListViewController"
+            stylesheets="@styles.css">
+
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15">
+            <Label text="TuBoletaRobinson" styleClass="label-title" style="-fx-font-size:18;"/>
+            <Label text="— Explorar Eventos" styleClass="label-muted"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblBienvenida" styleClass="label-muted"/>
+            <Button fx:id="btnAdminPanel" text="Panel Admin"
+                    styleClass="btn-secondary" onAction="#onAbrirAdmin" visible="false"/>
+            <Button text="Cerrar Sesion"        styleClass="btn-danger"    onAction="#onCerrarSesion"/>
+            <Button text="Cerrar Aplicacion"   styleClass="btn-danger"    onAction="#onCerrarApp"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="0">
+            <HBox spacing="12" alignment="CENTER_LEFT"
+                  style="-fx-background-color:#f0f0f0; -fx-padding:10 20; -fx-border-color:#dddddd; -fx-border-width:0 0 1 0;">
+                <Label text="Buscar:" styleClass="label-muted"/>
+                <TextField fx:id="txtBuscar" promptText="Nombre del evento..." prefWidth="260"/>
+                <Label text="Categoria:" styleClass="label-muted"/>
+                <ComboBox fx:id="cbCategoria" prefWidth="160"/>
+                <Button text="Buscar" styleClass="btn-primary" onAction="#onBuscar"/>
+                <Button text="Todos"  styleClass="btn-secondary" onAction="#onMostrarTodos"/>
+            </HBox>
+
+            <TableView fx:id="tablaEventos" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"        text="#"          prefWidth="45"/>
+                    <TableColumn fx:id="colNombre"    text="Nombre"     prefWidth="260"/>
+                    <TableColumn fx:id="colCategoria" text="Categoria"  prefWidth="120"/>
+                    <TableColumn fx:id="colCiudad"    text="Ciudad"     prefWidth="110"/>
+                    <TableColumn fx:id="colFecha"     text="Fecha"      prefWidth="160"/>
+                    <TableColumn fx:id="colEstado"    text="Estado"     prefWidth="110"/>
+                    <TableColumn fx:id="colPrecio"    text="Desde"      prefWidth="100"/>
+                </columns>
+                <placeholder>
+                    <Label text="No hay eventos publicados." styleClass="label-muted"/>
+                </placeholder>
+            </TableView>
+
+            <HBox style="-fx-background-color:#f5f5f5; -fx-padding:10 20; -fx-border-color:#dddddd; -fx-border-width:1 0 0 0;"
+                  alignment="CENTER_LEFT" spacing="10">
+                <Label fx:id="lblConteo" styleClass="label-muted" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnMisCompras" text="Mis Compras"
+                        styleClass="btn-secondary" onAction="#onMisCompras" visible="false"/>
+                <Button fx:id="btnDetalle" text="Ver Detalle"
+                        styleClass="btn-primary" onAction="#onVerDetalle" disable="true"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

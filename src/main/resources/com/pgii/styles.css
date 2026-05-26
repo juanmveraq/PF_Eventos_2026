@@ -1,0 +1,166 @@
+/** * Estilos CSS para la aplicación de gestión de eventos.
+ * generados para darle un estilo a la pagina, no son de mi autoria, los tome de otras paginas.
+ *
+ * Este archivo define estilos para:
+ * - Root: Fondo y fuente general.
+ * - Labels: Colores y tamaños para etiquetas.
+ * - Inputs: Estilos para campos de texto, áreas de texto y combo boxes.
+ * - Buttons: Estilos para botones primarios, secundarios, de éxito, peligro y advertencia.
+ * - Top bar: Estilo para la barra superior de la aplicación.
+ * - Cards: Estilo para tarjetas informativas.
+ * - TableView: Estilos para tablas, incluyendo filas alternas y selección.
+ * - Separator: Estilo para separadores visuales.
+ * - ScrollPane: Fondo para paneles con scroll.
+ * - TabPane: Estilos para pestañas y su contenido.
+ * - Form sections: Estilo para secciones dentro de formularios.
+ * - Seat buttons: Estilos específicos para botones de asientos en la gestión de salas.
+ * - KPI: Estilos para tarjetas de indicadores clave de rendimiento.
+ * - CheckBox: Estilos para casillas de verificación.
+ * - ListView: Estilos para listas, incluyendo filas alternas y selección.
+ *
+ * Para aplicar estos estilos, asegúrate de que tu aplicación JavaFX cargue este archivo CSS correctamente.
+ */
+
+/* ── Root ─────────────────────────────────────── */
+.root { -fx-background-color: white; -fx-font-family: "Segoe UI", Arial, sans-serif; }
+
+/* ── Labels ──────────────────────────────────── */
+.label        { -fx-text-fill: #1a1a1a; }
+.label-muted  { -fx-text-fill: #666666; }
+.label-accent { -fx-text-fill: #1565c0; -fx-font-weight: bold; }
+.label-title  { -fx-text-fill: #1565c0; -fx-font-size: 20; -fx-font-weight: bold; }
+
+/* ── Inputs ──────────────────────────────────── */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-text-fill: #1a1a1a;
+    -fx-prompt-text-fill: #aaaaaa;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 6 8;
+}
+.text-area {
+    -fx-background-color: white;
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 6;
+}
+.text-area .content { -fx-background-color: white; }
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+.combo-box .list-cell              { -fx-background-color: white; -fx-text-fill: #1a1a1a; }
+.combo-box-popup .list-view        { -fx-background-color: white; }
+.combo-box-popup .list-cell        { -fx-background-color: white; -fx-text-fill: #1a1a1a; }
+.combo-box-popup .list-cell:hover  { -fx-background-color: #e3f2fd; }
+.combo-box-popup .list-cell:selected { -fx-background-color: #1976d2; -fx-text-fill: white; }
+
+/* ── Buttons ─────────────────────────────────── */
+.btn-primary {
+    -fx-background-color: #1976d2; -fx-text-fill: white;
+    -fx-background-radius: 4; -fx-cursor: hand;
+    -fx-padding: 8 18; -fx-font-weight: bold;
+}
+.btn-primary:hover   { -fx-background-color: #1565c0; }
+.btn-secondary {
+    -fx-background-color: #e0e0e0; -fx-text-fill: #333333;
+    -fx-background-radius: 4; -fx-cursor: hand; -fx-padding: 7 14;
+}
+.btn-secondary:hover { -fx-background-color: #bdbdbd; }
+.btn-success {
+    -fx-background-color: #388e3c; -fx-text-fill: white;
+    -fx-background-radius: 4; -fx-cursor: hand;
+    -fx-padding: 7 14; -fx-font-weight: bold;
+}
+.btn-success:hover   { -fx-background-color: #2e7d32; }
+.btn-danger {
+    -fx-background-color: #d32f2f; -fx-text-fill: white;
+    -fx-background-radius: 4; -fx-cursor: hand; -fx-padding: 7 14;
+}
+.btn-danger:hover    { -fx-background-color: #c62828; }
+.btn-warning {
+    -fx-background-color: #f57c00; -fx-text-fill: white;
+    -fx-background-radius: 4; -fx-cursor: hand; -fx-padding: 7 14;
+}
+.btn-warning:hover   { -fx-background-color: #ef6c00; }
+
+/* ── Top bar ─────────────────────────────────── */
+.top-bar {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #dddddd; -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 20;
+}
+
+/* ── Cards ───────────────────────────────────── */
+.card {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0; -fx-border-radius: 6;
+    -fx-background-radius: 6; -fx-padding: 14;
+}
+
+/* ── TableView ───────────────────────────────── */
+.table-view {
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-border-color: #e0e0e0;
+}
+.table-view .column-header          { -fx-background-color: #f5f5f5; -fx-border-color: #e0e0e0; }
+.table-view .column-header .label   { -fx-text-fill: #1a1a1a; -fx-font-weight: bold; }
+.table-row-cell                     { -fx-background-color: white; -fx-text-fill: #1a1a1a; -fx-border-color: #f0f0f0; -fx-border-width: 0 0 1 0; }
+.table-row-cell:odd                 { -fx-background-color: #fafafa; }
+.table-row-cell:selected            { -fx-background-color: #bbdefb; -fx-text-fill: #1a1a1a; }
+
+/* ── Separator ───────────────────────────────── */
+.separator .line { -fx-border-color: #e0e0e0; }
+
+/* ── ScrollPane ──────────────────────────────── */
+.scroll-pane          { -fx-background-color: white; }
+.scroll-pane .viewport { -fx-background-color: white; }
+
+/* ── TabPane ─────────────────────────────────── */
+.tab-pane             { -fx-background-color: white; }
+.tab-pane .tab-header-area { -fx-background-color: #f5f5f5; }
+.tab                  { -fx-background-color: #e0e0e0; -fx-background-radius: 4 4 0 0; }
+.tab:selected         { -fx-background-color: #1976d2; }
+.tab .tab-label       { -fx-text-fill: #333333; -fx-font-weight: bold; }
+.tab:selected .tab-label { -fx-text-fill: white; }
+.tab-content-area     { -fx-background-color: white; }
+
+/* ── Form sections ───────────────────────────── */
+.form-section {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #e0e0e0; -fx-border-radius: 4;
+    -fx-background-radius: 4; -fx-padding: 12;
+}
+
+/* ── Seat buttons ────────────────────────────── */
+.seat-vip          { -fx-background-color: #f9a825; -fx-text-fill: white;   -fx-background-radius: 3; -fx-cursor: hand; -fx-min-width: 32; -fx-min-height: 26; -fx-font-size: 10; -fx-font-weight: bold; }
+.seat-preferencial { -fx-background-color: #6a1b9a; -fx-text-fill: white;   -fx-background-radius: 3; -fx-cursor: hand; -fx-min-width: 32; -fx-min-height: 26; -fx-font-size: 10; -fx-font-weight: bold; }
+.seat-general      { -fx-background-color: #1565c0; -fx-text-fill: white;   -fx-background-radius: 3; -fx-cursor: hand; -fx-min-width: 32; -fx-min-height: 26; -fx-font-size: 10; -fx-font-weight: bold; }
+.seat-sold         { -fx-background-color: #bdbdbd; -fx-text-fill: #757575; -fx-background-radius: 3; -fx-min-width: 32; -fx-min-height: 26; -fx-font-size: 10; }
+.seat-blocked      { -fx-background-color: #ef9a9a; -fx-text-fill: #c62828; -fx-background-radius: 3; -fx-min-width: 32; -fx-min-height: 26; -fx-font-size: 10; }
+.seat-selected     { -fx-border-color: #1a1a1a; -fx-border-width: 2; -fx-border-radius: 3; }
+
+/* ── KPI ─────────────────────────────────────── */
+.kpi-card  { -fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 6; -fx-padding: 14 24; -fx-alignment: center; }
+.kpi-value { -fx-text-fill: #1976d2; -fx-font-size: 22; -fx-font-weight: bold; }
+.kpi-title { -fx-text-fill: #666666; -fx-font-size: 12; }
+
+/* ── CheckBox ────────────────────────────────── */
+.check-box .text    { -fx-text-fill: #1a1a1a; }
+.check-box .box     { -fx-background-color: white; -fx-border-color: #aaaaaa; -fx-border-radius: 3; }
+.check-box:selected .mark { -fx-background-color: #1976d2; }
+
+/* ── ListView ────────────────────────────────── */
+.list-view          { -fx-background-color: white; }
+.list-cell          { -fx-background-color: white; -fx-text-fill: #1a1a1a; -fx-padding: 4 8; }
+.list-cell:odd      { -fx-background-color: #fafafa; }
+.list-cell:selected { -fx-background-color: #bbdefb; -fx-text-fill: #1a1a1a; }

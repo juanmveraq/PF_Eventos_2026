@@ -3,12 +3,26 @@ import com.pgii.model.entities.Compra;
 import com.pgii.model.enums.EstadoCompra;
 import com.pgii.model.interfaces.IEstadoCompra;
 
-/** Estado EstadoConfirmada del ciclo de vida de Compra. TODO: implementar transiciones correctas. */
+/**
+ * estado de una compra que fue verificada y confirmada definitivamente.
+ * implementa el patron State para el ciclo de vida de la compra.
+ * desde este estado solo se puede reembolsar la compra.
+ */
 public class EstadoConfirmada implements IEstadoCompra {
-    @Override public boolean pagar(Compra c)     { return false; /* TODO */ }
-    @Override public boolean confirmar(Compra c)  { return false; /* TODO */ }
-    @Override public boolean cancelar(Compra c)   { return false; /* TODO */ }
-    @Override public boolean reembolsar(Compra c) { return false; /* TODO */ }
-    @Override public EstadoCompra getEstadoEnum() { return null;  /* TODO */ }
-    @Override public String getNombre()           { return "EstadoConfirmada"; }
+
+    @Override public boolean pagar(Compra compra)    { return false; }
+
+    @Override public boolean confirmar(Compra compra) { return false; }
+
+    @Override public boolean cancelar(Compra compra)  {
+        compra.setTheEstado(new EstadoCancelada()); return true;
+    }
+
+    @Override public boolean reembolsar(Compra compra) {
+        compra.setTheEstado(new EstadoReembolsada()); return true;
+    }
+
+    @Override public EstadoCompra getEstadoEnum() { return EstadoCompra.CONFIRMADA; }
+
+    @Override public String getNombre() { return "CONFIRMADA"; }
 }
