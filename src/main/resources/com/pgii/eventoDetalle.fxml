@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pgii.view.viewcontroller.EventoDetalleViewController"
+            stylesheets="@styles.css">
+
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15">
+            <Button text="Volver" styleClass="btn-secondary" onAction="#onVolver"/>
+            <Label fx:id="lblTitulo" styleClass="label-title" style="-fx-font-size:18;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <HBox spacing="20" style="-fx-padding:20;">
+
+                <!-- Info del evento -->
+                <VBox spacing="12" styleClass="card" prefWidth="400">
+                    <Label text="Informacion del Evento" styleClass="label-accent" style="-fx-font-size:14;"/>
+                    <Separator/>
+                    <GridPane hgap="12" vgap="8">
+                        <Label text="Categoria:"    GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-muted"/>
+                        <Label fx:id="lblCategoria" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="Ciudad:"       GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-muted"/>
+                        <Label fx:id="lblCiudad"    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label text="Fecha:"        GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label-muted"/>
+                        <Label fx:id="lblFecha"     GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Estado:"       GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="label-muted"/>
+                        <Label fx:id="lblEstado"    GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label text="Recinto:"      GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="label-muted"/>
+                        <Label fx:id="lblRecinto"   GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Label text="Direccion:"    GridPane.columnIndex="0" GridPane.rowIndex="5" styleClass="label-muted"/>
+                        <Label fx:id="lblDireccion" GridPane.columnIndex="1" GridPane.rowIndex="5" wrapText="true"/>
+                        <Label text="Info extra:"   GridPane.columnIndex="0" GridPane.rowIndex="6" styleClass="label-muted"/>
+                        <Label fx:id="lblInfoExtra" GridPane.columnIndex="1" GridPane.rowIndex="6" wrapText="true"/>
+                    </GridPane>
+                    <Separator/>
+                    <Label text="Descripcion" styleClass="label-muted"/>
+                    <TextArea fx:id="txtDescripcion" editable="false" wrapText="true" prefRowCount="3"/>
+                    <Label text="Politica de Cancelacion" styleClass="label-muted"/>
+                    <Label fx:id="lblPolCancelacion" wrapText="true"/>
+                    <Label text="Politica de Reembolso" styleClass="label-muted"/>
+                    <Label fx:id="lblPolReembolso" wrapText="true"/>
+                </VBox>
+
+                <!-- Zonas disponibles -->
+                <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Zonas Disponibles" styleClass="label-accent" style="-fx-font-size:14;"/>
+                    <Separator/>
+                    <TableView fx:id="tablaZonas" VBox.vgrow="ALWAYS" prefHeight="280">
+                        <columns>
+                            <TableColumn fx:id="colZonaNombre"    text="Zona"        prefWidth="180"/>
+                            <TableColumn fx:id="colZonaCapacidad" text="Capacidad"   prefWidth="90"/>
+                            <TableColumn fx:id="colZonaDisp"      text="Disponibles" prefWidth="100"/>
+                            <TableColumn fx:id="colZonaPrecio"    text="Precio Base" prefWidth="110"/>
+                        </columns>
+                    </TableView>
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button text="Ver Mapa de Asientos" styleClass="btn-primary"
+                                onAction="#onVerMapa" style="-fx-font-size:13; -fx-padding:10 20;"/>
+                    </HBox>
+                </VBox>
+
+            </HBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

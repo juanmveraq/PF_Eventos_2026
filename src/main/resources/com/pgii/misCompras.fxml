@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pgii.view.viewcontroller.MisComprasViewController"
+            stylesheets="@styles.css">
+
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15">
+            <Button text="Volver" styleClass="btn-secondary" onAction="#onVolver"/>
+            <Label text="Mis Compras" styleClass="label-title" style="-fx-font-size:18;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblUsuario" styleClass="label-muted"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="0">
+            <!-- RF-010: Filtros de historial de compras por evento, estado y fecha -->
+            <HBox spacing="12" alignment="CENTER_LEFT"
+                  style="-fx-background-color:#f0f0f0; -fx-padding:10 20; -fx-border-color:#dddddd; -fx-border-width:0 0 1 0;">
+                <Label text="Evento:" styleClass="label-muted"/>
+                <TextField fx:id="txtFiltroEvento" promptText="Nombre del evento..." prefWidth="200"/>
+                <Label text="Estado:" styleClass="label-muted"/>
+                <ComboBox fx:id="cbFiltroEstado" prefWidth="150"/>
+                <Label text="Fecha:" styleClass="label-muted"/>
+                <TextField fx:id="txtFiltroFecha" promptText="yyyy-MM-dd" prefWidth="100"/>
+                <Button text="Filtrar"  styleClass="btn-primary"   onAction="#onFiltrar"/>
+                <Button text="Limpiar"  styleClass="btn-secondary" onAction="#onLimpiarFiltro"/>
+            </HBox>
+            <TableView fx:id="tablaCompras" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"       text="#"         prefWidth="55"/>
+                    <TableColumn fx:id="colEvento"   text="Evento"    prefWidth="280"/>
+                    <TableColumn fx:id="colFecha"    text="Fecha"     prefWidth="120"/>
+                    <TableColumn fx:id="colEntradas" text="Entradas"  prefWidth="90"/>
+                    <TableColumn fx:id="colTotal"    text="Total"     prefWidth="120"/>
+                    <TableColumn fx:id="colEstado"   text="Estado"    prefWidth="130"/>
+                </columns>
+                <placeholder>
+                    <Label text="No tienes compras registradas." styleClass="label-muted"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="lblMensaje" style="-fx-font-size:13;" HBox.hgrow="ALWAYS"/>
+            <Button text="Ver Comprobante"      styleClass="btn-secondary" onAction="#onVerComprobante"/>
+            <Button text="Descargar TXT"         styleClass="btn-secondary" onAction="#onDescargarComprobante"/>
+            <Button fx:id="btnCancelar"   text="Cancelar Compra"
+                    styleClass="btn-danger"  onAction="#onCancelar"   disable="true"/>
+            <Button fx:id="btnReembolsar" text="Solicitar Reembolso"
+                    styleClass="btn-warning" onAction="#onReembolsar"  disable="true"/>
+        </HBox>
+    </bottom>
+</BorderPane>
